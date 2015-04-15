@@ -17,5 +17,11 @@ To use this import tomcat-jdbc and exclude tomcat-juli.
         </exclusion>
     </exclusions>
 </dependency>
+
+<dependency>
+    <groupId>org.slf4j</groupId>
+    <artifactId>juli-over-slf4j</artifactId>
+    <version>1.7.12</version>
+</dependency>
 ```
 
