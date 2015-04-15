@@ -1,25 +1,24 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>org.slf4j</groupId>
-	<artifactId>juli-over-slf4j</artifactId>
-	<version>1.6.1</version>
-	<description>Forked from http://code.google.com/p/tomcat-slf4j</description>
-	
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<maven.compiler.source>1.5</maven.compiler.source>
-		<maven.compiler.target>1.5</maven.compiler.target>
-		
-		<!-- FIXME fix up the dirs below so they are relative -->
-		<devHome>file:///home/jason/Development</devHome>
-	</properties>
-	
-	<build>
-		<plugins>
-			<plugin>
+<project xmlns="http://maven.apache.org/POM/4.0.0">
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.slf4j</groupId>
+    <artifactId>juli-over-slf4j</artifactId>
+    <version>1.7.12</version>
+    <description>Forked from http://code.google.com/p/tomcat-slf4j</description>
+
+    <properties>
+        <custom.encoding>UTF-8</custom.encoding>
+        <!-- FIXME fix up the dirs below so they are relative
+        <devHome>file:///home/jason/Development</devHome>
+        -->
+    </properties>
+
+    <build>
+        <plugins>
+            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
-                <version>2.1.2</version>
+                <version>2.4</version>
                 <executions>
                     <execution>
                         <id>package-sources</id>
@@ -30,26 +29,38 @@
                     </execution>
                 </executions>
             </plugin>
-		</plugins>
-	</build>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.3</version>
+                <configuration>
+                    <source>1.7</source>
+                    <target>1.7</target>
+                    <encoding>${custom.encoding}</encoding>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
-	<dependencies>
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-api</artifactId>
-			<version>${project.version}</version>
-		</dependency>
-	</dependencies>
-	
-	<distributionManagement>
-		<repository>
-			<id>repo</id>
-			<url>${devHome}/maven2/releases</url>
-		</repository>
+    <dependencies>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+    </dependencies>
 
-		<snapshotRepository>
-			<id>snapshot-repo</id>
-			<url>${devHome}/maven2/snapshots</url>
-		</snapshotRepository>
-	</distributionManagement>
+    <!--
+    <distributionManagement>
+        <repository>
+            <id>repo</id>
+            <url>${devHome}/maven2/releases</url>
+        </repository>
+
+        <snapshotRepository>
+            <id>snapshot-repo</id>
+            <url>${devHome}/maven2/snapshots</url>
+        </snapshotRepository>
+    </distributionManagement>
+    -->
 </project>

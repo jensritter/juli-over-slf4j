@@ -18,9 +18,9 @@
 package org.apache.juli.logging;
 
 
-import java.util.Properties;
-
 import org.apache.juli.logging.slf4j.Slf4jLog;
+
+import java.util.Properties;
 
 
 /**
@@ -232,7 +232,7 @@ public /* abstract */ class LogFactory {
      *
      *  instance cannot be returned
      */
-    public Log getInstance(Class clazz) {
+    public Log getInstance(Class<?> clazz) {
         return Slf4jLog.getLogger(clazz);
     }
 
@@ -284,7 +284,7 @@ public /* abstract */ class LogFactory {
      *
      *  instance cannot be returned
      */
-    public static Log getLog(Class clazz) {
+    public static Log getLog(Class<?> clazz) {
         return (getFactory().getInstance(clazz));
 
     }
